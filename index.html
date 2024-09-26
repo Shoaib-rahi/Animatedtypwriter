@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #333;
+    }
+    .animated-text{
+        font-size: 35px;
+       
+  color: white;
+  min-width: 280px;
+    }
+    .animated-text span{
+        position: relative;
+        font-weight: 900;
+    }
+    .animated-text span::before{
+        content: "youtuber";
+       
+        color: #ff5f70;
+        animation: words 20s infinite;
+        /* padding: 0px 10px; */
+    }
+    @keyframes words{
+        0%,20%{
+            content: "youtuber";
+        }
+        21%,40%{
+            content: "developer";
+        }
+        41%,60%{
+            content: "designer";
+        }
+        61%,80%{
+            content: "gammer";
+        }
+        81%,100%{
+            content: "uidesigner";
+        }
+       
+    }
+.animated-text span::after{
+    position: absolute;
+    content: "";
+    width: calc(100% + 8px);
+    height: 100%;
+    background-color: #333;
+    border-left: 2px solid #ff5f70;
+    right: -8px;
+    animation:  cursor .8s infinite,typing 20s steps(15) infinite;
+}
+@keyframes typing{
+    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+     width: 0;
+        }
+        5%,20%,25%,40%,45%,60%,65%,80%{
+            width: calc(100% + 8px);
+        }
+}
+@keyframes cursor {
+    to{
+        border-left: 2px solid #333;
+    }
+
+    }
+</style>
+<body>
+    <div class="animated-text">
+        Hi, I am <span></span>
+    </div>
+</body>
+</html>
